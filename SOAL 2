@@ -1,0 +1,32 @@
+program Soal2;
+
+var
+  password, rahasia: string;
+  percobaan: integer;
+  berhasil: boolean;
+
+begin
+  rahasia := 'pascal123';
+  percobaan := 0;
+  berhasil := false;
+
+  repeat
+    percobaan := percobaan + 1;
+
+    write('Masukkan kata sandi: ');
+    readln(password);
+
+    if password = rahasia then
+    begin
+      writeln('Login Berhasil! Selamat Datang');
+      berhasil := true;
+      break;
+    end
+    else
+      writeln('Kata sandi salah!');
+
+  until percobaan >= 3;
+
+  if not berhasil then
+    writeln('Akses Ditolak! Akun Terkunci.');
+end.
